@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.org/knowledge-representation#"
+     xml:base="http://www.example.org/knowledge-representation"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.org/knowledge-representation"/>
+
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#LMODE"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#GMODE"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#ALPHABET"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#RREECRITURE"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#AXIOME"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#RINFERENCE"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#RVALUATION"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#CONTRADICTIONS"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#LogiqueClassique"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#LogiqueNonClassique"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#Logique"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#Langage"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#Syntaxe"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#Semantique"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#ModeDeRepresentationDeConnaissances"/>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#LogiqueDesPropositions">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/knowledge-representation#LogiqueClassique"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#LogiqueDesPredicats">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/knowledge-representation#LogiqueClassique"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#LogiqueDeDescription">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/knowledge-representation#LogiqueNonClassique"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#LogiqueModale">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/knowledge-representation#LogiqueNonClassique"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#LogiqueDesDefauts">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/knowledge-representation#LogiqueNonClassique"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#ReseauxBayesiens">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/knowledge-representation#GMODE"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#ReseauxSemantiques">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/knowledge-representation#GMODE"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#SystemeT">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/knowledge-representation#LogiqueModale"/>
+    </owl:Class>
+
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/knowledge-representation#compose"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/knowledge-representation#definie"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/knowledge-representation#est_correcte"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/knowledge-representation#genere"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/knowledge-representation#est_un"/>
+
+
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#ModeDeRepresentationDeConnaissances">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#compose"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/knowledge-representation#LMODE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#compose"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/knowledge-representation#GMODE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <rdfs:subClassOf rdf:resource="http://www.example.org/knowledge-representation#LMODE">
+        <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="http://www.example.org/knowledge-representation#LogiqueClassique"/>
+                <rdf:Description rdf:about="http://www.example.org/knowledge-representation#LogiqueNonClassique"/>
+            </owl:unionOf>
+        </owl:Class>
+    </rdfs:subClassOf>
+
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#Langage">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#definie"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/knowledge-representation#ALPHABET"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#definie"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/knowledge-representation#RREECRITURE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#Syntaxe">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#compose"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/knowledge-representation#RINFERENCE"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#compose"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/knowledge-representation#AXIOME"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#compose"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.example.org/knowledge-representation#AXIOME"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#est_correcte"/>
+                                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasValue>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#Semantique">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#compose"/>
+                <owl:allValuesFrom rdf:resource="http://www.example.org/knowledge-representation#RVALUATION"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#Logique">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#definie"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/knowledge-representation#Langage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#definie"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/knowledge-representation#Syntaxe"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#definie"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/knowledge-representation#Semantique"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.example.org/knowledge-representation#Logique">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/knowledge-representation#genere"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/knowledge-representation#CONTRADICTIONS"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/knowledge-representation#A4">
+        <rdf:type rdf:resource="http://www.example.org/knowledge-representation#AXIOME"/>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://www.example.org/knowledge-representation#instanceDeLogiqueDesPredicats">
+        <rdf:type rdf:resource="http://www.example.org/knowledge-representation#LogiqueDesPredicats"/>
+        <definie rdf:resource="http://www.example.org/knowledge-representation#A4"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/knowledge-representation#A7">
+        <rdf:type rdf:resource="http://www.example.org/knowledge-representation#AXIOME"/>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://www.example.org/knowledge-representation#instanceDeSystemeT">
+        <rdf:type rdf:resource="http://www.example.org/knowledge-representation#SystemeT"/>
+        <definie rdf:resource="http://www.example.org/knowledge-representation#A7"/>
+    </owl:NamedIndividual>
+
+</rdf:RDF>

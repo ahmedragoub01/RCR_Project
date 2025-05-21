@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.org/organisations-internationales#"
+     xml:base="http://www.example.org/organisations-internationales"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.org/organisations-internationales"/>
+
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OrganisationInternationale"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#ConditionHumaine"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#SecuriteCollective"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Constitution"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Membre"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Ratification"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Assemblee"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Secretariat"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OrganeExecutif"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#VoteFormel"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OrganisationPublique"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OrganisationNonGouvernementale"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Etat"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Budget"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#ONU"/>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OMS">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/organisations-internationales#OrganisationInternationale"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OMC">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/organisations-internationales#OrganisationInternationale"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#ConseilDeSecuriteDesNationsUnies">
+        <rdfs:subClassOf rdf:resource="http://www.example.org/organisations-internationales#OrganeExecutif"/>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Consensus"/>
+
+    <owl:ObjectProperty rdf:about="http://www.example.org/organisations-internationales#aPourObjet"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/organisations-internationales#estCreeGraceA"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/organisations-internationales#estComposeDe"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/organisations-internationales#voteSur"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/organisations-internationales#estOrganeExecutifPour"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/organisations-internationales#induit"/>
+    <owl:ObjectProperty rdf:about="http://www.example.org/organisations-internationales#doitContribuerAu"/>
+
+
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OrganisationInternationale">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#aPourObjet"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/organisations-internationales#ConditionHumaine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#aPourObjet"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/organisations-internationales#SecuriteCollective"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OrganisationInternationale">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#estCreeGraceA"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/organisations-internationales#Constitution"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#estComposeDe"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">20</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/organisations-internationales#Membre"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#estComposeDe"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">80</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.example.org/organisations-internationales#Ratification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OrganisationInternationale">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#voteSur"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.example.org/organisations-internationales#PrincipeMajoritaire"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#PrincipeMajoritaire"/>
+
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OrganisationInternationale">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#estComposeDe"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/organisations-internationales#Assemblee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#estComposeDe"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/organisations-internationales#Secretariat"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#estComposeDe"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/organisations-internationales#OrganeExecutif"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/organisations-internationales#ConseilDeSecuriteONU">
+        <rdf:type rdf:resource="http://www.example.org/organisations-internationales#ConseilDeSecuriteDesNationsUnies"/>
+    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="http://www.example.org/organisations-internationales#ONU_instance">
+        <rdf:type rdf:resource="http://www.example.org/organisations-internationales#ONU"/>
+        <estComposeDe rdf:resource="http://www.example.org/organisations-internationales#ConseilDeSecuriteONU"/>
+    </owl:NamedIndividual>
+
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Consensus">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#induit"/>
+                <owl:allValuesFrom>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#est_un"/>
+                        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</owl:hasValue>
+                    </owl:Restriction>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#OrganisationPublique">
+        <owl:disjointWith rdf:resource="http://www.example.org/organisations-internationales#OrganisationNonGouvernementale"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://www.example.org/organisations-internationales#Etat">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.example.org/organisations-internationales#doitContribuerAu"/>
+                <owl:someValuesFrom rdf:resource="http://www.example.org/organisations-internationales#Budget"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+</rdf:RDF>

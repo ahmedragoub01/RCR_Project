@@ -1,0 +1,27 @@
+%=== Monde W ===%
+q :- p.    % p → q
+r :- p.    % p → r
+-s :- r.   % r → ¬s
+
+%=== Règles de Défaut D ===%
+% :p/p
+p :- not -p.
+
+% r:¬q/¬q
+-q :- r, not q.
+
+% s:t/t
+t :- s, not -t.
+
+% p:v/v
+v :- p, not -v.
+
+% q:¬v/¬v
+-v :- q, not v.
+
+% v:u/u
+u :- v, not -u.
+
+%=== Contrôles de Cohérence ===%
+:- p, -p.  % Bloque p ∧ ¬p
+:- v, -v.  % Bloque v ∧ ¬v

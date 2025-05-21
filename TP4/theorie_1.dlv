@@ -1,0 +1,7 @@
+% Regles de defaut
+b :- a, not -b.    % a:b/b
+-a :- not a.       % :�a/�a
+a :- not -a.       % :a/a
+
+% Controles de coherence
+:- a, -a.          % Bloque les extensions incoherentes

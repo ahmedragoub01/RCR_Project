@@ -1,0 +1,13 @@
+% Fichier DLV pour la théorie Delta' = <W', D>
+% W' = {A, B, C}
+% D = { A /\ B : ~C / ~C }
+
+% Base de connaissances (W')
+a.
+b.
+c. % Ajout du fait C
+
+% Règle par défaut (D) - La même règle que précédemment
+% "Si A et B sont vrais, ET si C n'est PAS prouvé (not c),
+% ALORS nous pouvons conclure not_c (pour représenter ~C)."
+not_c :- a, b, not c.
