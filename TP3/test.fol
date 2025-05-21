@@ -1,0 +1,9 @@
+plant = {emma}
+animal = {bob,anna}
+type(animal=fatherOf(animal))
+type(flies(animal))
+type(eats(animal,plant))
+forall X: ((flies(X)=>exists Y: (eats(X,Y))))
+eats(bob,emma)
+flies(anna)
+forall X: ((flies(X)=>flies(fatherOf(X))))

@@ -1,0 +1,11 @@
+Person = {alice, bob, charlie}
+type(Knows(Person,Person))
+type(Likes(Person,Person))
+type(Happy(Person))
+(Knows(alice,bob))
+(Knows(bob,charlie))
+(Likes(alice,charlie))
+[](Knows(alice,bob))
+<>(Likes(bob,alice))
+(Knows(alice,bob)) => [](Knows(alice,bob))
+<>(forall X: ((Knows(X,alice)) => (Likes(alice,X))))
